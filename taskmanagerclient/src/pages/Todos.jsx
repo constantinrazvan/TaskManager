@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TodoCard from './TodoCard';
+import axios from 'axios';
 
 const Todos = () => {
-  const [email, setEmail] = useState("");
   const [todos, setTodos] = useState([]);
+
+  useEffect(() => { 
+    fetchTodos();
+  })
+
+  const fetchTodos = () => {
+    axios.get("http://localhost:5224/api/v1/todos/all")
+      .then((response) => response.json())
+      .then((data) => setTodos(data));
+  };
 
   return (
     <>

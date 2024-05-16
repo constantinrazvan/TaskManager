@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 const AddTodo = () => {
     
@@ -35,6 +36,8 @@ const AddTodo = () => {
                 <input type="checkbox" value={isDone} onChange={(e) => setIsDone(e.target.value)} />
                 <button type="submit"> Add Todo </button>
             </form>
+
+            ( error ? <p> {error} </p> : null)
         </>
     )
 }

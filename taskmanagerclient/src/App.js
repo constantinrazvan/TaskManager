@@ -4,6 +4,8 @@ import AddTodo from "./pages/AddTodo";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
 function App() {
   return (
     <>
