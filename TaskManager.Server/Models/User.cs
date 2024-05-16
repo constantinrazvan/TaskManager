@@ -1,15 +1,24 @@
-﻿namespace TaskManager.Server.Models
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TaskManager.Server.Models
 {
     public class User
     {
-        private int id;
-        private string email; 
-        private string password;
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
-        public User () { }
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
 
-        public int Id { get { return id; } set {  id = value; } }
-        public string Email { get { return email; } set { email = value; } }
-        public string Password { get { return password; } set { password = value; } }
+        [Required]
+        public string Password { get; set; }
+
+        public ICollection<Todo> Todos { get; set; } = new List<Todo>();
+
+        public User() { }
     }
 }

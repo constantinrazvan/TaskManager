@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TaskManager.Server.Models;
 using System.Linq;
+using TaskManager.Server.DTOs;
 
 namespace TaskManager.Server.Controllers
 {
@@ -15,7 +16,7 @@ namespace TaskManager.Server.Controllers
         }
 
         [HttpPost("register")]
-        public ActionResult NewUser([FromBody] User user)
+        public ActionResult NewUser([FromBody] UserRegistrationDto user)
         {
             if (user == null)
             {
@@ -44,7 +45,7 @@ namespace TaskManager.Server.Controllers
         }
 
         [HttpPost("login")]
-        public ActionResult LoginUser([FromBody] User user)
+        public ActionResult LoginUser([FromBody] UserLoginDto user)
         {
             if (user == null)
             {
